@@ -41,7 +41,7 @@ class _DialogBoxState extends State<DialogBox> {
               controller: widget.controller,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Add a new task",
+                hintText: "Name of new task",
               ),
             ),
             TextField(
@@ -58,10 +58,10 @@ class _DialogBoxState extends State<DialogBox> {
                     firstDate: DateTime(2022),
                     lastDate: DateTime(2026));
 
-                if(pickeddate != null)
-                {
+                if (pickeddate != null) {
                   setState(() {
-                    widget.startdatecontroller.text = DateFormat('dd-MM-yyyy').format(pickeddate);
+                    widget.startdatecontroller.text =
+                        DateFormat('yyyy-MM-dd').format(pickeddate);
                   });
                 }
               },
@@ -74,36 +74,38 @@ class _DialogBoxState extends State<DialogBox> {
                 hintText: "Enter Time",
               ),
               onTap: () async {
-                TimeOfDay? pickedtime = await showTimePicker(context: context, initialTime: TimeOfDay(hour: 12, minute: 00));
+                TimeOfDay? pickedtime = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay(hour: 12, minute: 00));
 
-                if(pickedtime != null)
-                  {
-                    setState(() {
-                      widget.timecontroller.text = pickedtime.format(context).toString();
-
-                    });
-                  }
-              },
-            ),
-            TextField(
-              controller: widget.interval,
-              decoration: InputDecoration(
-                icon: Icon(Icons.repeat),
-                border: OutlineInputBorder(),
-                hintText: "Repeats after",
-              ),
-              onTap: () async {
-                TimeOfDay? pickedtime = await showTimePicker(context: context, initialTime: TimeOfDay(hour: 12, minute: 00));
-
-                if(pickedtime != null)
-                {
+                if (pickedtime != null) {
                   setState(() {
-                    widget.timecontroller.text = pickedtime.format(context).toString();
-
+                    widget.timecontroller.text =
+                        pickedtime.format(context).toString();
                   });
                 }
               },
             ),
+            // TextField(
+            //   controller: widget.interval,
+            //   decoration: InputDecoration(
+            //     icon: Icon(Icons.repeat),
+            //     border: OutlineInputBorder(),
+            //     hintText: "Repeats after",
+            //   ),
+            //   onTap: () async {
+            //     TimeOfDay? pickedtime = await showTimePicker(
+            //         context: context,
+            //         initialTime: TimeOfDay(hour: 12, minute: 00));
+            //
+            //     if (pickedtime != null) {
+            //       setState(() {
+            //         widget.timecontroller.text =
+            //             pickedtime.format(context).toString();
+            //       });
+            //     }
+            //   },
+            // ),
 
             // buttons -> save + cancel
             Row(

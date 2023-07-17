@@ -15,7 +15,10 @@ class MonthlySummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 25, bottom: 25,),
+      padding: const EdgeInsets.only(
+        top: 25,
+        bottom: 25,
+      ),
       child: HeatMap(
         margin: EdgeInsets.all(5),
         borderRadius: 25,
